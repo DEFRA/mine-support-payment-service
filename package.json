@@ -39,7 +39,8 @@
     "jsonwebtoken": "^8.5.1",
     "kafkajs": "^1.15.0",
     "pg": "^8.3.3",
-    "pg-hstore": "^2.3.3"
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "@azure/service-bus": "^7.0.2",
