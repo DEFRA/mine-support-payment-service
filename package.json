@@ -1,6 +1,6 @@
 {
   "name": "ffc-demo-payment-service",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "Digital service mock to claim public money in the event property subsides into mine shaft.",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "test:integration": "jest --runInBand --testPathPattern=test/integration --coverage=false",
     "test:unit": "jest --testPathPattern=test/unit --coverage=false",
     "test:watch": "jest --runInBand --coverage=false --onlyChanged --watch",
+    "test:debug": "node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache",
     "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js"
   },
   "author": "Defra DDTS",
@@ -31,15 +32,14 @@
   "dependencies": {
     "@azure/identity": "^1.2.2",
     "@hapi/hapi": "^20.1.0",
-    "joi": "^17.4.0",
     "applicationinsights": "^1.8.2",
-    "ffc-events": "^1.0.0-alpha.33",
-    "ffc-messaging": "^2.1.1",
+    "ffc-events": "^1.0.0",
+    "ffc-messaging": "^2.3.1",
+    "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
     "kafkajs": "^1.15.0",
     "pg": "^8.3.3",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^6.5.0"
+    "pg-hstore": "^2.3.3"
   },
   "devDependencies": {
     "@azure/service-bus": "^7.0.2",

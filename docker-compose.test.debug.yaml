@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  ffc-demo-payment-service:
+    command: npm run test:debug
+    ports:
+      - "9232:9229"
