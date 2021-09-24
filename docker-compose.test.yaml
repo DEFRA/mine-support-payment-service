@@ -16,6 +16,7 @@ services:
     depends_on:
       - kafka
       - zookeeper
+      - ffc-demo-payment-postgres
     volumes:
       - ./app:/home/node/app
       - ./test:/home/node/test

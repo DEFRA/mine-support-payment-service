@@ -33,7 +33,7 @@
     "@azure/identity": "^1.2.2",
     "@hapi/hapi": "^20.1.0",
     "applicationinsights": "^1.8.2",
-    "ffc-events": "^1.0.0",
+    "ffc-events": "^1.0.1",
     "ffc-messaging": "^2.3.1",
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
