@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 # This override file should be used when running automated tests so
 # that test output is saved to the host
@@ -16,10 +16,11 @@ services:
     depends_on:
       - kafka
       - zookeeper
+      - ffc-demo-payment-postgres
     volumes:
-      - ./app/:/home/node/app/
-      - ./test/:/home/node/test/
-      - ./test-output/:/home/node/test-output/
+      - ./app:/home/node/app
+      - ./test:/home/node/test
+      - ./test-output:/home/node/test-output
       - ./jest.config.js:/home/node/jest.config.js
       - ./jest.setup.js:/home/node/jest.setup.js
       - ./package.json:/home/node/package.json

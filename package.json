@@ -1,6 +1,6 @@
 {
   "name": "ffc-demo-payment-service",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "Digital service mock to claim public money in the event property subsides into mine shaft.",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "test:integration": "jest --runInBand --testPathPattern=test/integration --coverage=false",
     "test:unit": "jest --testPathPattern=test/unit --coverage=false",
     "test:watch": "jest --runInBand --coverage=false --onlyChanged --watch",
+    "test:debug": "node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache",
     "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js"
   },
   "author": "Defra DDTS",
@@ -46,7 +47,7 @@
     "@hapi/good": "^9.0.0",
     "@hapi/good-console": "^9.0.0",
     "@hapi/good-squeeze": "^6.0.0",
-    "@pact-foundation/pact": "^9.11.0",
+    "@pact-foundation/pact": "9.11.0",
     "blipp": "^4.0.1",
     "jest": "^26.6.3",
     "jest-junit": "^11.1.0",
