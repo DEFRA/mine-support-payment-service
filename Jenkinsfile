@@ -1,3 +1,3 @@
-@Library('defra-library@v-9.24.1') _
+@Library('defra-library@test-pact-publish') _
 
 buildNodeJs defaultBranch: 'master'
