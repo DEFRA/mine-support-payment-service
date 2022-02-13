@@ -24,3 +24,10 @@ services:
       - ./jest.config.js:/home/node/jest.config.js
       - ./jest.setup.js:/home/node/jest.setup.js
       - ./package.json:/home/node/package.json
+
+  ffc-demo-payment-postgres:
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

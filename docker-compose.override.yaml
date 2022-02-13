@@ -44,4 +44,4 @@ services:
       - kafka
 
 volumes:
-  postgres_data: {}
+  postgres_data:
