@@ -11,7 +11,7 @@ data:
   CLAIM_UPDATE_TOPIC: {{ quote .Values.container.claimUpdateTopic }}
   CLAIM_UPDATE_FROM_BEGINNING: {{ quote .Values.container.claimUpdateFromBeginning }}
   POSTGRES_DB: {{ quote .Values.postgresService.postgresDb }}
-  POSTGRES_HOST: {{ quote .Values.postgresService.postgresHost }}
+  POSTGRES_HOST: {{ quote .Values.postgresService.postgresqlHost }}
   POSTGRES_PORT: {{ quote .Values.postgresService.postgresPort }}
   POSTGRES_SCHEMA_NAME: {{ quote .Values.postgresService.postgresSchema }}
   MESSAGE_QUEUE_HOST: {{ quote .Values.container.messageQueueHost }}
