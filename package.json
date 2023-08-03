@@ -38,7 +38,7 @@
     "joi": "17.4.0",
     "jsonwebtoken": "8.5.1",
     "kafkajs": "1.15.0",
-    "pg": "8.3.3",
+    "pg": "8.11.1",
     "pg-hstore": "2.3.3",
     "sequelize": "6.21.2"
   },
