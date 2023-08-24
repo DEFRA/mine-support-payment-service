@@ -30,28 +30,28 @@
   ],
   "license": "OGL-UK-3.0",
   "dependencies": {
-    "@azure/identity": "1.5.2",
+    "@azure/identity": "^3.3.0",
     "@hapi/hapi": "20.2.0",
     "applicationinsights": "1.8.2",
-    "ffc-events": "1.0.1",
-    "ffc-messaging": "2.3.2",
+    "ffc-events": "^1.0.4",
+    "ffc-messaging": "^2.7.0",
     "joi": "17.4.0",
-    "jsonwebtoken": "8.5.1",
+    "jsonwebtoken": "^9.0.1",
     "kafkajs": "1.15.0",
-    "pg": "8.3.3",
+    "pg": "^8.11.3",
     "pg-hstore": "2.3.3",
-    "sequelize": "6.21.2"
+    "sequelize": "^6.32.1"
   },
   "devDependencies": {
-    "@azure/service-bus": "7.0.2",
+    "@azure/service-bus": "^7.9.0",
     "@hapi/good": "9.0.0",
     "@hapi/good-console": "9.0.0",
     "@hapi/good-squeeze": "6.0.0",
-    "@pact-foundation/pact": "9.11.0",
+    "@pact-foundation/pact": "^9.18.1",
     "blipp": "4.0.1",
     "jest": "26.6.3",
     "jest-junit": "13.0.0",
-    "nodemon": "2.0.20",
+    "nodemon": "^3.0.1",
     "standard": "16.0.4"
   },
   "standard": {
