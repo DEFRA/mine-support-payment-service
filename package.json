@@ -47,7 +47,7 @@
     "@hapi/good": "9.0.1",
     "@hapi/good-console": "9.0.1",
     "@hapi/good-squeeze": "6.0.0",
-    "@pact-foundation/pact": "^12.1.0",
+    "@pact-foundation/pact": "^9.18.1",
     "blipp": "4.0.2",
     "jest": "29.6.4",
     "jest-junit": "16.0.0",
