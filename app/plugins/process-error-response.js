@@ -3,7 +3,7 @@ function processErrorResponse (request) {
   const statusCode = response.output.statusCode
   if (statusCode !== 404) {
     request.log('error', {
-      statusCode: statusCode,
+      statusCode,
       data: response.data,
       message: response.message
     })

@@ -1,28 +1,7 @@
 module.exports = {
-  plugin: require('@hapi/good'),
+  plugin: require('hapi-pino'),
   options: {
-    ops: {
-      interval: 1000
-    },
-    reporters: {
-      console: [
-        {
-          module: '@hapi/good-squeeze',
-          name: 'Squeeze',
-          args: [
-            {
-              log: '*',
-              error: '*',
-              response: '*',
-              request: '*'
-            }
-          ]
-        },
-        {
-          module: '@hapi/good-console'
-        },
-        'stdout'
-      ]
-    }
+    logPayload: true,
+    level: 'warn'
   }
 }
