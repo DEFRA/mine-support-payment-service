@@ -16,7 +16,7 @@ async function createSchedule (claim, scheduleStartDate) {
 
 async function getById (claimId) {
   const schedule = await models.schedule.findAll({
-    where: { claimId: claimId },
+    where: { claimId },
     include: [models.payment],
     order: [['paymentDate', 'DESC']]
   })
