@@ -70,7 +70,6 @@ livenessProbe:
   periodSeconds: 10
   failureThreshold: 3
 
-aadPodIdentity: false 
 aadWorkloadIdentity: true
 
 serviceAccount:
