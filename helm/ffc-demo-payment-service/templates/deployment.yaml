@@ -1,8 +1,8 @@
-{{- include "ffc-helm-library.deployment" (list . "ffc-demo-payment-service.deployment") -}}
+{{- include "adp-helm-library.deployment" (list . "ffc-demo-payment-service.deployment") -}}
 {{- define "ffc-demo-payment-service.deployment" -}}
 spec:
   template:
     spec:
       containers:
-      - {{ include "ffc-helm-library.container" (list . "ffc-demo-payment-service.container") }}
+      - {{ include "adp-helm-library.container" (list . "ffc-demo-payment-service.container") }}
 {{- end -}}
