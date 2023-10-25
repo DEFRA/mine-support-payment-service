@@ -9,11 +9,11 @@ asoAnnotations:
 
 namespaceTopics:
   - name: schedule
-    create: "false"
+    owner: "no"
     topicSubscriptions:
       - name: payment
   - name: payment
-    create: "false"
+    owner: "no"
     topicSubscriptions:
       - name: payment
       
