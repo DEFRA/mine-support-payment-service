@@ -9,24 +9,12 @@ labels: {}
 appInsights:
   key:
 
-azureIdentity:
-  clientID: not-a-real-clientID
-  resourceID: not-a-real-resourceID
-
-containerConfigMap:
-  name: ffc-demo-payment-service-config-map
-
-containerSecret:
-  name: ffc-demo-payment-service-container-secret
-  type: Opaque
-
 deployment:
   restartPolicy: Always
   priorityClassName: low
   replicas: 1
   minReadySeconds: 5
   imagePullSecret:
-  useLinkerd: true
 
 container:
   port: 3004
@@ -74,3 +62,4 @@ aadWorkloadIdentity: true
 
 serviceAccount:
   name: ffc-demo
+  roleArn: true
