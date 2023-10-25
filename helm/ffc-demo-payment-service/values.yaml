@@ -63,3 +63,20 @@ aadWorkloadIdentity: true
 serviceAccount:
   name: ffc-demo
   roleArn: true
+
+containerConfigMap:
+  name: 'ffc-demo-payment-service-config-map'
+  configServiceUrl: 'https://sndadpinfac1401.azconfig.io'
+  auth:
+    workloadIdentity:
+      clientId: e9badf28-ce66-4dd3-97e1-e28bfb1da26b
+  keyValues:
+    labelFilter: 'ffc-demo-payment-service'
+    refresh:
+      interval: 2m
+      monitorKey: 'Sentinel'
+      monitorLabel: 'ffc-demo-payment-service'
+
+managedIdPrefix: sndadpinfmid1401
+userAssignedIdentity:
+  managedIdName: ffc-demo-services
