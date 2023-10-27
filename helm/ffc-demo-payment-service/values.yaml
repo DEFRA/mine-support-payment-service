@@ -9,24 +9,12 @@ labels: {}
 appInsights:
   key:
 
-azureIdentity:
-  clientID: not-a-real-clientID
-  resourceID: not-a-real-resourceID
-
-containerConfigMap:
-  name: ffc-demo-payment-service-config-map
-
-containerSecret:
-  name: ffc-demo-payment-service-container-secret
-  type: Opaque
-
 deployment:
   restartPolicy: Always
   priorityClassName: low
   replicas: 1
   minReadySeconds: 5
   imagePullSecret:
-  useLinkerd: true
 
 container:
   port: 3004
@@ -74,3 +62,21 @@ aadWorkloadIdentity: true
 
 serviceAccount:
   name: ffc-demo
+  roleArn: true
+
+containerConfigMap:
+  name: 'ffc-demo-payment-service-config-map'
+  configServiceUrl: 'https://sndadpinfac1401.azconfig.io'
+  auth:
+    workloadIdentity:
+      clientId: e9badf28-ce66-4dd3-97e1-e28bfb1da26b
+  keyValues:
+    labelFilter: 'ffc-demo-payment-service'
+    refresh:
+      interval: 2m
+      monitorKey: 'Sentinel'
+      monitorLabel: 'ffc-demo-payment-service'
+
+managedIdPrefix: sndadpinfmid1401
+userAssignedIdentity:
+  managedIdName: ffc-demo-services
