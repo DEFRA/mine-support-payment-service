@@ -1,6 +1,5 @@
 namespace: ffc-demo
 
-subscriptionId: 
 serviceBusResourceGroupName: sndadpinfrg1401
 serviceBusNamespaceName: sndadpinfsb1401
 
@@ -10,10 +9,14 @@ asoAnnotations:
 namespaceTopics:
   - name: schedule
     owner: "no"
+    roleAssignments:
+      - roleName: 'TopicReceiver'
     topicSubscriptions:
       - name: payment
   - name: payment
     owner: "no"
+    roleAssignments:
+      - roleName: 'TopicReceiver'
     topicSubscriptions:
       - name: payment
       
@@ -24,3 +27,19 @@ postgres:
     name: payment 
     charset: UTF8
     collation: en_US.utf8
+
+tags:
+  Environment: SND1
+  ServiceCode: ADP
+  ServiceName: ffc-demo-payment-service
+  ServiceType: Shared
+  Purpose: Define purpose
+  ManagedBy: ASO
+  kubernetes_cluster: SNDADPINFAK1401
+
+#Dummy placeholder values only for linting. NOT TO BE POPULATED
+subscriptionId: "dummySubscriptionId"
+userAssignedIdentity: {}
+teamMIPrefix: "dummy-mi-prefix"
+serviceName: "dummy-svc"
+teamResourceGroupName: "dummy-rsg"
