@@ -63,3 +63,16 @@ aadWorkloadIdentity: true
 serviceAccount:
   name: ffc-demo
   roleArn: true
+
+# Placeholder - To be removed after updates to ADP Helm Library
+containerConfigMap:
+  name: 'ffc-demo-payment-service-config-map'
+  configServiceUrl: 
+  keyValues:
+    labelFilter: 'ffc-demo-payment-service'
+    refresh:
+      interval: 2m
+      monitorKey: 'Sentinel'
+      monitorLabel: 'ffc-demo-payment-service'
+userAssignedIdentity:
+  managedIdName: 
