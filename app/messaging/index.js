@@ -1,7 +1,7 @@
 const config = require('../config')
 const processScheduleMessage = require('./process-schedule-message')
 const processPaymentMessage = require('./process-payment-message')
-const { MessageReceiver } = require('ffc-messaging')
+const { MessageReceiver } = require('adp-messaging')
 let scheduleReceiver
 let paymentReceiver
 
