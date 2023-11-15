@@ -1,0 +1,86 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "ffc-demo-payment-service"
+  description: |
+    Digital service mock to claim public money in the event property subsides into mine shaft. 
+    The payment service subscribes to a message queue for new claims and saves a monthly payment schedule in a Postgresql database. 
+    It also subscribes to the queue for new calculations and updates the value to pay in the database.
+  annotations:
+    github.com/project-slug: DEFRA/ffc-demo-payment-service
+    dev.azure.com/project: DEFRA-FFC
+    dev.azure.com/build-definition: DEFRA.ffc-demo-payment-service
+    sonarqube.org/project-key: adp-ffc-demo-payment-service
+  tags:
+    - node
+    - service-bus
+    - private
+    - back-end
+    - database
+    - api
+spec:
+  type: backend
+  lifecycle: beta
+  owner: "group:default/fcp-payments"
+  system: ffc-demo-service
+  dependsOn:
+    - "resource:default/ffc-demo-schedule-topic"
+    - "resource:default/ffc-demo-payment-topic"
+    - "resource:default/ffc-demo-payments-database"
+  providesApis:
+    - "api:default/ffc-payments-api"
+    - "api:default/ffc-payments-async-api"
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ffc-demo-payments-database
+  description: Database for persisting payments made to claimants
+  tags:
+    - postgresql
+spec:
+  type: database
+  owner: "group:default/fcp-payments"
+  system: ffc-demo-service
+  dependsOn:
+    - "resource:default/ffc-demo-database-server"
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ffc-payments-api
+  description: Payments API
+  links:
+    - url: https://github.com/DEFRA/ffc-demo-payment-service
+      title: GitHub Repo
+      icon: github
+    - url: https://github.com/DEFRA/ffc-demo-payment-service/blob/master/docs/openapi.yaml
+      title: API Spec
+      icon: code
+spec:
+  type: openapi
+  lifecycle: beta
+  owner: "group:default/fcp-payments"
+  system: ffc-demo-service
+  definition:
+    $text: https://raw.githubusercontent.com/DEFRA/ffc-demo-payment-service/master/docs/openapi.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ffc-payments-async-api
+  description: Payments Async API
+  links:
+    - url: https://github.com/DEFRA/ffc-demo-payment-service
+      title: GitHub Repo
+      icon: github
+    - url: https://github.com/DEFRA/ffc-demo-payment-service/blob/master/docs/asyncapi.yaml
+      title: API Spec
+      icon: code
+spec:
+  type: asyncapi
+  lifecycle: beta
+  owner: "group:default/fcp-payments"
+  system: ffc-demo-service
+  definition:
+    $text: https://raw.githubusercontent.com/DEFRA/ffc-demo-payment-service/master/docs/asyncapi.yaml
