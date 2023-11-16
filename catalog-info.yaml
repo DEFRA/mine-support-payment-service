@@ -21,34 +21,34 @@ metadata:
 spec:
   type: backend
   lifecycle: beta
-  owner: "group:default/fcp-payments"
-  system: ffc-demo-service
+  owner: "group:default/fcp-demo"
+  system: fcp-demo-service
   dependsOn:
-    - "resource:default/ffc-demo-schedule-topic"
-    - "resource:default/ffc-demo-payment-topic"
-    - "resource:default/ffc-demo-payments-database"
+    - "resource:default/fcp-demo-schedule-topic"
+    - "resource:default/fcp-demo-payment-topic"
+    - "resource:default/fcp-demo-payments-database"
   providesApis:
-    - "api:default/ffc-payments-api"
-    - "api:default/ffc-payments-async-api"
+    - "api:default/fcp-payments-api"
+    - "api:default/fcp-payments-async-api"
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
-  name: ffc-demo-payments-database
+  name: fcp-demo-payments-database
   description: Database for persisting payments made to claimants
   tags:
     - postgresql
 spec:
   type: database
-  owner: "group:default/fcp-payments"
-  system: ffc-demo-service
+  owner: "group:default/fcp-demo"
+  system: fcp-demo-service
   dependsOn:
-    - "resource:default/ffc-demo-database-server"
+    - "resource:default/adpdbsps01"
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: ffc-payments-api
+  name: fcp-payments-api
   description: Payments API
   links:
     - url: https://github.com/DEFRA/ffc-demo-payment-service
@@ -60,15 +60,15 @@ metadata:
 spec:
   type: openapi
   lifecycle: beta
-  owner: "group:default/fcp-payments"
-  system: ffc-demo-service
+  owner: "group:default/fcp-demo"
+  system: fcp-demo-service
   definition:
     $text: https://raw.githubusercontent.com/DEFRA/ffc-demo-payment-service/master/docs/openapi.yaml
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: ffc-payments-async-api
+  name: fcp-payments-async-api
   description: Payments Async API
   links:
     - url: https://github.com/DEFRA/ffc-demo-payment-service
@@ -80,7 +80,7 @@ metadata:
 spec:
   type: asyncapi
   lifecycle: beta
-  owner: "group:default/fcp-payments"
-  system: ffc-demo-service
+  owner: "group:default/fcp-demo"
+  system: fcp-demo-service
   definition:
     $text: https://raw.githubusercontent.com/DEFRA/ffc-demo-payment-service/master/docs/asyncapi.yaml
