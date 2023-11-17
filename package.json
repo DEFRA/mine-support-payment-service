@@ -32,7 +32,7 @@
   "dependencies": {
     "@azure/identity": "^3.3.0",
     "@hapi/hapi": "21.3.2",
-    "adp-messaging": "^2.9.0-alpha.2",
+    "adp-messaging": "2.9.0",
     "applicationinsights": "2.7.3",
     "ffc-events": "1.0.4",
     "joi": "17.10.1",
