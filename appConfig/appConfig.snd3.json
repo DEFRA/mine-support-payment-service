@@ -36,7 +36,7 @@
     },
     {
         "key": "MESSAGE_QUEUE_HOST",
-        "value": "SNDADPINFSB1401.servicebus.windows.net",
+        "value": "SNDADPINFSB3401.servicebus.windows.net",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
@@ -50,7 +50,7 @@
     },
     {
         "key": "POSTGRES_HOST",
-        "value": "sndadpdbsps1401.postgres.database.azure.com",
+        "value": "sndadpdbsps3401.postgres.database.azure.com",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
@@ -71,7 +71,7 @@
     },
     {
         "key": "POSTGRES_USERNAME",
-        "value": "sndadpinfmi1401-ffc-demo-payment-service",
+        "value": "sndadpinfmi3401-ffc-demo-payment-service",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}

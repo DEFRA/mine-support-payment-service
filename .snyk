@@ -9,7 +9,7 @@ ignore:
     - '@azure/ms-rest-nodeauth > adal-node > request > har-validator > ajv':
         reason: No known exploit
         expires: '2021-03-31T00:00:00.000Z'
-    - ffc-messaging > @azure/ms-rest-nodeauth > adal-node > request > har-validator > ajv:
+    - adp-messaging > @azure/ms-rest-nodeauth > adal-node > request > har-validator > ajv:
         reason: None given
         expires: '2021-02-13T15:34:14.800Z'
     - '@azure/ms-rest-nodeauth > adal-node > request > har-validator > ajv':
@@ -18,7 +18,7 @@ ignore:
     - '@okta/jwt-verifier > jwks-rsa > request > har-validator > ajv':
         reason: 'No known exploit, Okta no longer used'
         expires: '2021-02-13T15:34:14.800Z'
-    - ffc-messaging > @azure/ms-rest-nodeauth > adal-node > request > har-validator > ajv:
+    - adp-messaging > @azure/ms-rest-nodeauth > adal-node > request > har-validator > ajv:
         reason: None given
         expires: '2021-04-18T18:54:36.530Z'
   SNYK-JS-LODASH-590103:
@@ -76,7 +76,7 @@ ignore:
         reason: 'No fix, Okta not used'
         expires: '2021-04-18T21:19:48.176Z'
   SNYK-JS-XMLDOM-1084960:
-    - ffc-messaging > @azure/ms-rest-nodeauth > adal-node > xmldom:
+    - adp-messaging > @azure/ms-rest-nodeauth > adal-node > xmldom:
         reason: None given
         expires: '2021-04-18T18:54:36.530Z'
     - '@azure/ms-rest-nodeauth > adal-node > xmldom':
@@ -127,7 +127,7 @@ ignore:
     - ffc-events > @azure/identity > axios:
         reason: None given
         expires: '2021-10-24T21:14:51.918Z'
-    - ffc-messaging > @azure/identity > axios:
+    - adp-messaging > @azure/identity > axios:
         reason: None given
         expires: '2021-10-24T21:14:51.918Z'
     - '@azure/identity > @azure/msal-node > axios':
@@ -136,11 +136,11 @@ ignore:
     - ffc-events > @azure/identity > @azure/msal-node > axios:
         reason: None given
         expires: '2021-10-24T21:14:51.918Z'
-    - ffc-messaging > @azure/identity > @azure/msal-node > axios:
+    - adp-messaging > @azure/identity > @azure/msal-node > axios:
         reason: None given
         expires: '2021-10-24T21:14:51.918Z'
   SNYK-JS-ANSIREGEX-1583908:
-    - ffc-messaging > @azure/identity > keytar > prebuild-install > npmlog > gauge > wide-align > string-width > strip-ansi > ansi-regex:
+    - adp-messaging > @azure/identity > keytar > prebuild-install > npmlog > gauge > wide-align > string-width > strip-ansi > ansi-regex:
         reason: None given
         expires: '2021-10-24T21:14:51.918Z'
 patch: {}

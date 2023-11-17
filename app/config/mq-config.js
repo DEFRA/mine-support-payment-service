@@ -4,6 +4,7 @@ const mqSchema = joi.object({
   messageQueue: {
     host: joi.string().default('localhost'),
     useCredentialChain: joi.bool().default(false),
+    managedIdentityClientId: joi.string().optional(),
     type: joi.string(),
     appInsights: joi.object()
   },
@@ -26,6 +27,7 @@ const mqConfig = {
   messageQueue: {
     host: process.env.MESSAGE_QUEUE_HOST,
     useCredentialChain: process.env.NODE_ENV === 'production',
+    managedIdentityClientId: process.env.AZURE_CLIENT_ID,
     type: 'subscription',
     appInsights: process.env.NODE_ENV === 'production' ? require('applicationinsights') : undefined
   },
