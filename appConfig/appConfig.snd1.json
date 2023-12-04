@@ -78,56 +78,56 @@
     },
     {
         "key": "EVENT_HOST",
-        "value": "",
+        "value": "sndadpinfen1001",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
     },
     {
         "key": "EVENT_PORT",
-        "value": "",
+        "value": "9093",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
     },
     {
         "key": "EVENT_MECHANISM",
-        "value": "",
+        "value": "scram-sha-512",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
     },
     {
         "key": "EVENT_CLIENT_ID",
-        "value": "",
+        "value": "ffc-demo-payment-service",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
     },
     {
         "key": "EVENT_CONSUMER_GROUP_ID",
-        "value": "",
+        "value": "ffc-demo-payment-service-claim-update",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
     },
     {
         "key": "CLAIM_UPDATE_TOPIC_NAME",
-        "value": "",
+        "value": "ffc-demo-collector-claim-update",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
     },
     {
         "key": "CLAIM_UPDATE_TOPIC",
-        "value": "",
+        "value": "ffc-demo-claim-update-dev",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
     },
     {
         "key": "CLAIM_UPDATE_FROM_BEGINNING",
-        "value": "",
+        "value": "true",
         "label": "{{serviceName}}",
         "content_type": "",
         "tags": {}
