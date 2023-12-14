@@ -1,6 +1,6 @@
 {
   "name": "ffc-demo-payment-service",
-  "version": "4.2.16",
+  "version": "4.2.17",
   "description": "Digital service mock to claim public money in the event property subsides into mine shaft.",
   "main": "index.js",
   "scripts": {
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@azure/service-bus": "7.9.1",
     "@pact-foundation/pact": "9.11.1",
+    "@types/jest": "^29.5.11",
     "blipp": "4.0.2",
     "hapi-pino": "12.1.0",
     "jest": "29.7.0",
