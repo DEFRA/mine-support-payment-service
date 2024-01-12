@@ -54,3 +54,4 @@ extends:
       snykTestFilePath: "./docker-compose.snyk.yaml"
     appDeployConfig:
       filepath: "./appConfig"  
+      filetype: "yaml"
