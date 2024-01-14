@@ -19,10 +19,7 @@ deployment:
 container:
   port: 3004
   imagePullPolicy: IfNotPresent
-  requestMemory: 5Mi
-  requestCpu: 5m
-  limitMemory: 120Mi
-  limitCpu: 80m
+  memCpuTier: M
   messageQueueHost: amq
   scheduleSubscriptionAddress: schedule
   paymentSubscriptionAddress: payment
