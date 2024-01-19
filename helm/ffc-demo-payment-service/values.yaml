@@ -1,45 +1,16 @@
-environment: development
 name: ffc-demo-payment-service
 namespace: ffc-demo
-workstream: ffc-demo
 image: ffc-demo-payment-service
 
 labels: {}
 
-appInsights:
-  key:
-
 deployment:
-  restartPolicy: Always
   priorityClassName: low
-  replicas: 1
   minReadySeconds: 5
-  imagePullSecret:
 
 container:
   port: 3004
-  imagePullPolicy: IfNotPresent
   memCpuTier: M
-  messageQueueHost: amq
-  scheduleSubscriptionAddress: schedule
-  paymentSubscriptionAddress: payment
-  scheduleTopicAddress: schedule
-  paymentTopicAddress: payment
-  eventHost: kafka
-  eventPort: 9093
-  eventMechanism: scram-sha-512
-  eventClientId: ffc-demo-payment-service
-  eventConsumerGroupId: ffc-demo-payment-service-claim-update
-  claimUpdateTopicName: ffc-demo-collector-claim-update
-  claimUpdateTopic: ffc-demo-claim-update
-  claimUpdateFromBeginning: true
-
-postgresService:
-  postgresDb: ffc_demo_payment_service
-  postgresqlHost: ffc-demo-payments-postgres
-  postgresPort: 5432
-  postgresSchema: public
-  postgresUser: postgres
 
 readinessProbe:
   path: /healthy
