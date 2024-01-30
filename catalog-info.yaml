@@ -11,6 +11,7 @@ metadata:
     dev.azure.com/project: DEFRA-FFC
     dev.azure.com/build-definition: ffc-demo-payment-service
     sonarqube.org/project-key: adp-ffc-demo-payment-service
+    grafana/dashboard-selector: "folderTitle == 'Managed Prometheus'"
   tags:
     - node
     - service-bus
@@ -18,6 +19,14 @@ metadata:
     - back-end
     - database
     - api
+  links:
+    - url: https://github.com/DEFRA/ffc-demo-payment-service/
+      title: View repository
+      icon: github
+    - url: https://dev.azure.com/defragovuk/DEFRA-FFC/_build?definitionId=4964
+      title: CI/CD Pipeline
+    - url: https://sonarcloud.io/project/overview?id=adp-ffc-demo-payment-service
+      title: SonarCloud Analysis
 spec:
   type: backend
   lifecycle: beta
