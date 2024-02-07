@@ -12,6 +12,7 @@ metadata:
     dev.azure.com/build-definition: ffc-demo-payment-service
     sonarqube.org/project-key: adp-ffc-demo-payment-service
     grafana/dashboard-selector: "folderTitle == 'Managed Prometheus'"
+    backstage.io/kubernetes-id: ffc-demo-payment-service
   tags:
     - node
     - service-bus
