@@ -110,7 +110,13 @@ Contract testing has been introduced to the service, using the Pact toolkit. Tes
 
 The application is designed to run in containerised environments, using Docker Compose in development and Kubernetes in production.
 
-- A Helm chart is provided for production deployments to Kubernetes.
+### Deploy to Kubernetes
+
+For production deployments, 2 helm charts are included in the `.\helm` folder.
+- `ffc-demo-payment-service-infra` for Application infrastructure deployment (servicebus queues, topics, storage accounts) using [`adp-aso-helm-library`](https://github.com/DEFRA/adp-aso-helm-library)
+- `ffc-demo-payment-service` for Application deployment using [`adp-helm-library`](https://github.com/DEFRA/adp-helm-library)
+
+These helm charts take developer inputs from [values.yaml](/helm/ffc-demo-payment-service/values.yaml) and [values.yaml](/helm/ffc-demo-payment-service-infra/values.yaml). On running the [`CI pipeline`](.azuredevops/build.yaml) the images and helm charts are built and published to environment level Azure Container Registries.
 
 ### Build container image
 
@@ -185,14 +191,6 @@ Note: the dev postgres password is defined in docker-compose.yaml
 To test interactions with sibling services in the FFC demo application, it is necessary to connect each service to an external Docker network, along with shared dependencies such as databases. The most convenient approach for this is to start the entire application stack from the [`ffc-demo-development`](https://github.com/DEFRA/ffc-demo-development) repository.
 
 It is also possible to run a limited subset of the application stack. See the [`ffc-demo-development`](https://github.com/DEFRA/ffc-demo-development) README for instructions.
-
-### Deploy to Kubernetes
-
-For production deployments, 2 helm charts are included in the `.\helm` folder.
-- `ffc-demo-payment-service-infra` for Application infrastructure deployment (servicebus queues, topics, storage accounts) using [`adp-aso-helm-library`](https://github.com/DEFRA/adp-aso-helm-library)
-- `ffc-demo-payment-service` for Application deployment using [`adp-helm-library`](https://github.com/DEFRA/adp-helm-library)
-
-These helm charts take developer inputs from [values.yaml](/helm/ffc-demo-payment-service/values.yaml) and [values.yaml](/helm/ffc-demo-payment-service-infra/values.yaml). On running the [`CI pipeline`](.azuredevops/build.yaml) the images and helm charts are built and published to environment level Azure Container Registries.
 
 #### Accessing the pod
 
