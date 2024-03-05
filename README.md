@@ -16,18 +16,13 @@ Optional:
 - Helm
 
 ### Azure Service Bus
-
 This service depends on a valid Azure Service Bus connection string for
 asynchronous communication.  The following environment variables need to be set
-in any non-production (`!config.isProd`) environment before the Docker
-container is started. When deployed into an appropriately configured AKS
-cluster (where [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) is
-configured) the micro-service will use AAD Pod Identity through the manifests
-for
-[azure-identity](./helm/ffc-demo-claim-service/templates/azure-identity.yaml)
-and
-[azure-identity-binding](./helm/ffc-demo-claim-service/templates/azure-identity-binding.yaml).
-
+in any non-production (`process.env.NODE_ENV !== production`)
+environment before the Docker container is started. When deployed
+into an appropriately configured AKS cluster (where
+[Azure Workload Identity](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) is
+configured) the micro-service will use Azure Workload Identity configured on the deployment helm template which is included in the application helm chart.
 | Name                               | Description                                                                                  |
 | ---------------------------------- | -------------------------------------------------------------------------------------------- |
 | MESSAGE_QUEUE_HOST                 | Azure Service Bus hostname, e.g. `myservicebus.servicebus.windows.net`                       |
@@ -115,7 +110,13 @@ Contract testing has been introduced to the service, using the Pact toolkit. Tes
 
 The application is designed to run in containerised environments, using Docker Compose in development and Kubernetes in production.
 
-- A Helm chart is provided for production deployments to Kubernetes.
+### Deploy to Kubernetes
+
+For production deployments, 2 helm charts are included in the `.\helm` folder.
+- `ffc-demo-payment-service-infra` for Application infrastructure deployment (servicebus queues, topics, storage accounts) using [`adp-aso-helm-library`](https://github.com/DEFRA/adp-aso-helm-library)
+- `ffc-demo-payment-service` for Application deployment using [`adp-helm-library`](https://github.com/DEFRA/adp-helm-library)
+
+These helm charts take developer inputs from [values.yaml](/helm/ffc-demo-payment-service/values.yaml) and [values.yaml](/helm/ffc-demo-payment-service-infra/values.yaml). On running the [`CI pipeline`](.azuredevops/build.yaml) the images and helm charts are built and published to environment level Azure Container Registries.
 
 ### Build container image
 
@@ -143,6 +144,13 @@ Additional Docker Compose files are provided for scenarios such as linking to ot
 Link to other services and expose inspection Artemis and Postgres ports:
 * `docker network create ffc-demo`
 * `docker-compose -f docker-compose.yaml -f docker-compose.link.yaml -f docker-compose.override.yaml up`
+
+### Database migrations
+Database migrations can be run locally using the below command which applies the liquibase changelog defined in `changelog` directory by running the migration scripts in `scripts/migration`. 
+```
+docker-compose -f docker-compose.migrate.yaml run --rm database-up
+```
+While commiting the code changes to git repository, as part of CI pipeline, a new database migration image is created from `db-migration.Dockerfile` dockerfile. This contains the necessary scripts, liquibase changelog files. This image has Azure CLI installed in it and applies database migrations using Azure Workload Identity associated with the database migration job. 
 
 ### Test the service
 
@@ -184,10 +192,6 @@ To test interactions with sibling services in the FFC demo application, it is ne
 
 It is also possible to run a limited subset of the application stack. See the [`ffc-demo-development`](https://github.com/DEFRA/ffc-demo-development) README for instructions.
 
-### Deploy to Kubernetes
-
-For production deployments, a helm chart is included in the `.\helm` folder. This service connects to an AMQP 1.0 message broker, using credentials defined in [values.yaml](./helm/ffc-demo-payment-service/values.yaml), which must be made available prior to deployment.
-
 #### Accessing the pod
 
 By default, the service is not exposed via an endpoint within Kubernetes.
@@ -212,13 +216,15 @@ The readiness probe will test for both the availability of a PostgreSQL database
 
 Sequelize's `authenticate` function is used to test database connectivity.  This function tries to run a basic query within the database.
 
-## Build pipeline
+## Build Pipeline
 
-Builds are managed by Jenkins.
+The [CI Pipeline](.azuredevops/build.yaml) does the following
+- The application is validated
+- The application is tested
+- The application is built into deployable artifacts (images and helm charts)
+- Pushing the artifacts to Azure Container Registry
 
-Builds will be deployed into a namespace with the format `mine-support-payment-service-{identifier}` where `{identifier}` is either the release version, the PR number, or the branch name.
-
-A detailed description on the build pipeline and PR work flow is available in the [Defra Confluence page](https://eaflood.atlassian.net/wiki/spaces/FFCPD/pages/1281359920/Build+Pipeline+and+PR+Workflow)
+A detailed description on the build pipeline [wiki page](https://github.com/DEFRA/ado-pipeline-common/blob/main/docs/AppBuildAndDeploy.md) 
 
 ## Licence
 
