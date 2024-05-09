@@ -42,6 +42,7 @@ extends:
   template: /pipelines/common-app-build.yaml@DEFRA-ADPPipelineCommon
   parameters:
     serviceName: "ffc-demo-payment-service"
+    includePlatformEnvs: true
     deployFromFeature: ${{ parameters.deployFromFeature }}
     deployConfigOnly: ${{ parameters.deployConfigOnly }}
     appBuildConfig:
