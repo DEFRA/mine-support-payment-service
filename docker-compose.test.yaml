@@ -6,7 +6,7 @@ services:
     build:
       context: .
       target: development
-    command: sh -c "npm run test:unit"
+    command: sh -c "npm run test"
     environment:
       PACT_BROKER_URL: ${PACT_BROKER_URL:-notset}
       PACT_BROKER_USERNAME: ${PACT_BROKER_USERNAME:-notset}
