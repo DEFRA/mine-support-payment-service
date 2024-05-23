@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   ffc-demo-payment-service:
     build:
@@ -29,7 +28,7 @@ services:
       EVENT_PASSWORD: kafka
 
   ffc-demo-payment-postgres:
-    image: postgres:11.4-alpine
+    image: postgres:15.6-alpine
     environment:
       POSTGRES_DB: ffc_demo_payments
       POSTGRES_PASSWORD: ppp
