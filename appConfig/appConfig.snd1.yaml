@@ -6,3 +6,5 @@
   value: "sndadpinfmi1401-ffc-demo-payment-service" 
 - key: EVENT_HOST
   value: "sndadpinfen1001"
+- key: POSTGRES_DB
+  value: "fcp-demo-payment"
