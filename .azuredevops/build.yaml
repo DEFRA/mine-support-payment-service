@@ -45,6 +45,7 @@ extends:
     serviceName: "ffc-demo-payment-service"
     deployFromFeature: ${{ parameters.deployFromFeature }}
     deployConfigOnly: ${{ parameters.deployConfigOnly }}
+    includePlatformEnvs: true
     appBuildConfig:
       appFrameworkType: "nodejs"  
       projectPath: "./package.json"
