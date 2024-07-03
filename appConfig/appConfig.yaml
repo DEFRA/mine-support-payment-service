@@ -3,13 +3,13 @@
 - key: PORT
   value: "3004"   
 - key: PAYMENT_TOPIC_ADDRESS
-  value: "ffc-demo-payment"
+  value: "fcp-demo-payment"
 - key: PAYMENT_SUBSCRIPTION_ADDRESS
-  value: "ffc-demo-payment"
+  value: "fcp-demo-payment"
 - key: SCHEDULE_TOPIC_ADDRESS
-  value: "ffc-demo-schedule" 
+  value: "fcp-demo-schedule" 
 - key: SCHEDULE_SUBSCRIPTION_ADDRESS
-  value: "ffc-demo-payment"  
+  value: "fcp-demo-payment"  
 - key: POSTGRES_PORT
   value: "5432"  
 - key: POSTGRES_SCHEMA_NAME
