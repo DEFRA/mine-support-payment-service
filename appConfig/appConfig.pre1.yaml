@@ -7,4 +7,4 @@
 - key: EVENT_HOST
   value: "preadpinfen1001"
 - key: POSTGRES_DB
-  value: "ffc-demo-payment"
+  value: "fcp-demo-payment"
