@@ -35,7 +35,7 @@
     "adp-messaging": "2.9.0",
     "applicationinsights": "2.7.3",
     "ffc-events": "1.0.4",
-    "joi": "17.10.1",
+    "joi": "17.13.3",
     "jsonwebtoken": "9.0.2",
     "kafkajs": "2.2.4",
     "pg": "8.11.3",
